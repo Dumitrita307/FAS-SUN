@@ -247,7 +247,6 @@ Promise.all(
 
 /* ================================================================
    6. SECȚIUNEA HAINE — Date locale + Tab-uri
-   (în versiunile viitoare: date din propriul backend)
 ================================================================ */
 const brandClothes = [
   {
@@ -255,32 +254,28 @@ const brandClothes = [
     label: 'Brand de autor · Ediție limitată',
     name:  'Jachetă structurată bej',
     desc:  'Croială impecabilă, umeri construiți, bumbac organic premium.',
-    price: '890 lei',
-    rating:'4.8 (24)'
+    price: '890 lei'
   },
   {
     img:   'https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=400&h=300&fit=crop',
     label: 'Brand de autor · Ediție limitată',
     name:  'Costum în dungi fine',
     desc:  'Lână Merinos italiană, tăietură dreaptă, dublură naturală.',
-    price: '1.450 lei',
-    rating:'4.9 (18)'
+    price: '1.450 lei'
   },
   {
-    img:   'https://images.unsplash.com/photo-1594938298603-c8148c4b4c7e?w=400&h=300&fit=crop',
+    img:   'https://images.unsplash.com/photo-1594938298603-c8148c4beed9?w=400&h=300&fit=crop',
     label: 'Brand de autor · Ediție limitată',
     name:  'Pardesiu camel',
     desc:  'Lână cașmir 30%, cădere elegantă, butoni metalici aurii.',
-    price: '2.100 lei',
-    rating:'5.0 (9)'
+    price: '2.100 lei'
   },
   {
     img:   'https://images.unsplash.com/photo-1603251579431-8041402bdeda?w=400&h=300&fit=crop',
     label: 'Brand de autor · Ediție limitată',
     name:  'Bluzon de piele eco',
     desc:  'Design minimalist, fermoar ascuns, căptușeală mătase.',
-    price: '1.200 lei',
-    rating:'4.7 (31)'
+    price: '1.200 lei'
   }
 ];
 
@@ -290,36 +285,31 @@ const unicatClothes = [
     label: 'Piesă unicat · Atelier propriu',
     name:  'Rochie asimetrică hand-made',
     desc:  'Mătase Mulberry, cusută manual, model unic, nu se repetă.',
-    price: '3.200 lei',
-    rating:'5.0 (6)'
+    price: '3.200 lei'
   },
   {
     img:   'https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=400&h=300&fit=crop',
     label: 'Piesă unicat · Atelier propriu',
     name:  'Kimono brodat',
     desc:  'In francez, broderie florală manuală, cordon inclus.',
-    price: '1.800 lei',
-    rating:'4.9 (12)'
+    price: '1.800 lei'
   },
   {
     img:   'https://images.unsplash.com/photo-1562572159-4efc207f5aff?w=400&h=300&fit=crop',
     label: 'Piesă unicat · Atelier propriu',
     name:  'Fustă midi plisată',
     desc:  'Voal dublu, talie elastică, disponibilă în 3 nuanțe.',
-    price: '650 lei',
-    rating:'4.8 (19)'
+    price: '650 lei'
   },
   {
     img:   'https://images.unsplash.com/photo-1554412933-514a83d2f3c8?w=400&h=300&fit=crop',
     label: 'Piesă unicat · Atelier propriu',
     name:  'Top crochet manual',
     desc:  'Bumbac organic, model geometric, realizat artizanal.',
-    price: '420 lei',
-    rating:'4.7 (27)'
+    price: '420 lei'
   }
 ];
 
-// Funcție care generează HTML pentru un card de haină
 function buildClothCard(item) {
   return `
     <article class="card">
@@ -330,7 +320,7 @@ function buildClothCard(item) {
         <p class="card-desc">${escapeHTML(item.desc)}</p>
         <div class="card-footer">
           <span class="card-price">${escapeHTML(item.price)}</span>
-          <span>⭐ ${escapeHTML(item.rating)}</span>
+          <button class="btn btn-gold" style="padding:.4rem .9rem;font-size:.8rem">Comandă</button>
         </div>
       </div>
     </article>
@@ -341,22 +331,15 @@ document.getElementById('pane-brand').innerHTML  = brandClothes.map(buildClothCa
 document.getElementById('pane-unicat').innerHTML = unicatClothes.map(buildClothCard).join('');
 observeElements('.card');
 
-// Logica tab-urilor — click pe un tab schimbă panoul activ
 document.querySelectorAll('.tab-btn').forEach(function(btn) {
   btn.addEventListener('click', function() {
-    // Dezactivăm toate tab-urile și panourile
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
-
-    // Activăm cel apăsat
     btn.classList.add('active');
     document.getElementById(btn.dataset.tab).classList.add('active');
-
-    // Observăm cardurile nou-devenite vizibile
     observeElements('.card');
   });
 });
-
 /* ================================================================
    7. SECȚIUNEA ACCESORII — Slider
    Slider manual fără librării externe

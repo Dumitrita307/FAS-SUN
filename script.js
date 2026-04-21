@@ -204,34 +204,46 @@ document.getElementById('matGrid').innerHTML = materials.map(function(mat) {
 observeElements('.card');
 
 /* ================================================================
-   5. SECȚIUNEA CULORI
-   Date locale — paletă fixă pentru v1.0
-   (în versiunile viitoare poate fi conectată la un API de culori)
+   5. SECȚIUNEA CULORI — conectată la The Color API
 ================================================================ */
 const colors = [
-  { name: 'Mocha Mousse',    hex: '#B87B4F', note: 'Ideal pentru piele & pantaloni eleganți' },
-  { name: 'Golden Apricot',  hex: '#E2B87A', note: 'Rochii de vară, accesorii aurii' },
-  { name: 'Ethereal Blue',   hex: '#8FB0D0', note: 'Cămăși, costume office' },
-  { name: 'Terracotta Dust', hex: '#C57F5E', note: 'Sacouri, fuste midi de toamnă' },
-  { name: 'Vanilla Bean',    hex: '#F3E5D8', note: 'Baze neutre perfecte pentru layering' }
+  { hex: 'B87B4F', note: 'Ideal pentru piele & pantaloni eleganți' },
+  { hex: 'E2B87A', note: 'Rochii de vară, accesorii aurii' },
+  { hex: '8FB0D0', note: 'Cămăși, costume office' },
+  { hex: 'C57F5E', note: 'Sacouri, fuste midi de toamnă' },
+  { hex: 'F3E5D8', note: 'Baze neutre perfecte pentru layering' }
 ];
 
-document.getElementById('colorGrid').innerHTML = colors.map(function(color) {
-  return `
-    <article class="card">
-      <div class="color-swatch" style="background:${color.hex}"
-           role="img" aria-label="Culoare ${escapeHTML(color.name)}"></div>
-      <div class="card-body">
-        <h3 class="card-title">${escapeHTML(color.name)}</h3>
-        <p class="color-hex">${escapeHTML(color.hex)}</p>
-        <p class="color-note">${escapeHTML(color.note)}</p>
-        <span class="color-badge">Trend 2025</span>
-      </div>
-    </article>
-  `;
-}).join('');
+document.getElementById('colorGrid').innerHTML = buildSkeletons(5, 120);
 
-observeElements('.card');
+Promise.all(
+  colors.map(function(c) {
+    return fetch('https://www.thecolorapi.com/id?hex=' + c.hex + '&format=json')
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        return { hex: c.hex, name: data.name.value, note: c.note };
+      })
+      .catch(function() {
+        return { hex: c.hex, name: '#' + c.hex, note: c.note };
+      });
+  })
+).then(function(results) {
+  document.getElementById('colorGrid').innerHTML = results.map(function(color) {
+    return `
+      <article class="card">
+        <div class="color-swatch" style="background:#${color.hex};height:120px;border-radius:8px 8px 0 0"
+             role="img" aria-label="Culoare ${escapeHTML(color.name)}"></div>
+        <div class="card-body">
+          <h3 class="card-title">${escapeHTML(color.name)}</h3>
+          <p class="color-hex">#${color.hex}</p>
+          <p class="color-note">${escapeHTML(color.note)}</p>
+          <span class="color-badge">Trend 2025</span>
+        </div>
+      </article>
+    `;
+  }).join('');
+  observeElements('.card');
+});
 
 /* ================================================================
    6. SECȚIUNEA HAINE — Date locale + Tab-uri

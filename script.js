@@ -621,3 +621,22 @@ document.getElementById('btnSubmit').addEventListener('click', function() {
 document.getElementById('btnExplore').addEventListener('click', function() {
   document.getElementById('stilizare').scrollIntoView({ behavior: 'smooth' });
 });
+const navLinks = document.querySelectorAll('.nav-links a');
+const sections = document.querySelectorAll('section[id]');
+
+const navObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      navLinks.forEach(function(link) {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + entry.target.id) {
+          link.classList.add('active');
+        }
+      });
+    }
+  });
+}, { threshold: 0.4 });
+
+sections.forEach(function(section) {
+  navObserver.observe(section);
+});

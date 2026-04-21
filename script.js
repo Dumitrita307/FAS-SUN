@@ -507,11 +507,10 @@ function buildReviewCard(review) {
   `;
 }
 
-// Afișăm toate recenziile (exemplu + salvate de utilizator)
 function renderReviews() {
   const userReviews = loadSavedReviews();
   const allReviews  = [...sampleReviews, ...userReviews];
-  const container   = document.getElementById('reviewsList');
+  const container   = document.getElementById('revContainer');
 
   if (allReviews.length === 0) {
     container.innerHTML = '<p style="color:var(--text-muted)">Fii primul care lasă o recenzie!</p>';

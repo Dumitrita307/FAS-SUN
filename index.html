@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FAS SUN — Modă la Comandă</title>
-  <meta name="description" content="Modă la comandă — stilizare, materiale premium, accesorii și recenzii.">
+  <meta name="description" content="Stilizare, materiale premium, culori ale anului, branduri exclusive și accesorii. FAS SUN — modă la comandă.">
 
   <!-- Fonturi -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
 
   <!-- Iconuri -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -19,189 +19,200 @@
 </head>
 <body>
 
-  <!-- ========== PRELOADER ========== -->
-  <div id="preloader">
-    <div class="spinner"></div>
-    <p class="brand-name">FAS SUN</p>
-    <p class="brand-sub">modă la comandă</p>
-  </div>
+<!-- ========== PRELOADER ========== -->
+<div id="pl" role="status" aria-label="Se încarcă">
+  <div class="pl-ring" aria-hidden="true"></div>
+  <p class="pl-name">FAS SUN</p>
+  <p class="pl-sub">modă la comandă</p>
+</div>
 
-  <!-- ========== NOTIFICARE TOAST ========== -->
-  <div id="toast"></div>
+<!-- ========== TOAST NOTIFICATION ========== -->
+<div id="toast" role="alert" aria-live="polite"></div>
 
-  <!-- ========== SITE PRINCIPAL ========== -->
-  <div id="site">
+<!-- ========== SITE PRINCIPAL ========== -->
+<div id="site">
 
-    <!-- NAVIGARE -->
-    <header>
-      <nav class="navbar">
-        <div class="container">
-          <a href="#" class="logo">✦ FAS SUN</a>
-          <ul class="nav-links">
+  <!-- NAVIGARE -->
+  <header>
+    <nav class="nav" aria-label="Navigare principală">
+      <div class="wrap">
+        <div class="nav-in">
+          <a href="#" class="logo" aria-label="FAS SUN — acasă">✦ FAS SUN</a>
+          <ul class="nav-links" role="list">
             <li><a href="#stilizare">Stilizare</a></li>
             <li><a href="#materiale">Materiale</a></li>
             <li><a href="#culori">Culori</a></li>
             <li><a href="#haine">Haine</a></li>
             <li><a href="#accesorii">Accesorii</a></li>
+            <li><a href="#stiluri">Stiluri</a></li>
             <li><a href="#recenzii">Recenzii</a></li>
           </ul>
         </div>
-      </nav>
-    </header>
+      </div>
+    </nav>
+  </header>
 
-    <!-- HERO -->
-    <section class="hero">
-      <div class="container">
-        <p class="hero-eyebrow">Colecția 2025</p>
-        <h1>Modă care<br>devine <em>artă</em></h1>
-        <p class="hero-text">Stilizare personalizată, materiale de excepție și piese unicat — totul la comandă.</p>
-        <div class="hero-buttons">
-          <button class="btn btn-primary" id="btnExplore">Explorează</button>
-          <a href="#recenzii" class="btn btn-outline">Comunitate</a>
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-h">
+    <div class="orb o1" aria-hidden="true"></div>
+    <div class="orb o2" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="hero-content">
+        <p class="hero-tag"><span></span>Colecția 2025<span></span></p>
+        <h1 id="hero-h">Modă care<br>devine <em>artă</em></h1>
+        <p>Stilizare personalizată, materiale de excepție și piese unicat — totul la comandă, pentru tine.</p>
+        <div class="hero-btns">
+          <button class="btn btn-gold" id="btnExplore">Explorează <i class="fas fa-arrow-right" aria-hidden="true"></i></button>
+          <a href="#recenzii" class="btn btn-line">Comunitate</a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <main class="container">
+  <main>
+    <div class="wrap">
 
       <!-- 1. STILIZARE -->
-      <section id="stilizare" class="section">
-        <div class="section-header">
-          <span class="section-tag">Inspirație vizuală</span>
-          <h2>Idei de <em>Stilizare</em></h2>
-          <p>Combinații pentru fiecare sezon. Hover pe fiecare look pentru sfaturi de styling.</p>
+      <section class="sec" id="stilizare" aria-labelledby="stil-h">
+        <div class="sec-hd">
+          <p class="sec-tag">Inspirație vizuală</p>
+          <h2 class="sec-title" id="stil-h">Idei de <em>Stilizare</em></h2>
+          <p class="sec-desc">Combinații vestimentare gândite pentru fiecare sezon și ocazie. Treci cu mouse-ul peste fiecare look pentru sfaturi de styling.</p>
         </div>
-        <!-- Cardurile sunt generate din script.js -->
-        <div id="styleGrid" class="style-grid"></div>
+        <div class="style-grid" id="styleGrid" role="list"></div>
       </section>
 
       <!-- 2. MATERIALE -->
-      <section id="materiale" class="section">
-        <div class="section-header">
-          <span class="section-tag">La comandă · Livrare 7–14 zile</span>
-          <h2>Materiale <em>Premium</em></h2>
-          <p>Tip de material, origine, certificare și preț pe metru.</p>
+      <section class="sec" id="materiale" aria-labelledby="mat-h">
+        <div class="sec-hd">
+          <p class="sec-tag">La comandă · Livrare 7–14 zile</p>
+          <h2 class="sec-title" id="mat-h">Materiale <em>Premium</em></h2>
+          <p class="sec-desc">Alege tipul de material, află originea, certificarea și prețul pe metru. Toate țesăturile sunt disponibile la comandă în orice culoare.</p>
         </div>
-        <!-- Cardurile sunt generate din script.js -->
-        <div id="matGrid" class="grid-4"></div>
+        <div class="grid4" id="matGrid" role="list"></div>
       </section>
 
       <!-- 3. CULORI -->
-      <section id="culori" class="section">
-        <div class="section-header">
-          <span class="section-tag">Chroma 2025</span>
-          <h2>Culorile <em>Anului</em></h2>
-          <p>Paleta sezonului 2025 — nuanțe validate de tendințele internaționale.</p>
+      <section class="sec" id="culori" aria-labelledby="col-h">
+        <div class="sec-hd">
+          <p class="sec-tag">Chroma 2025</p>
+          <h2 class="sec-title" id="col-h">Culorile <em>Anului</em></h2>
+          <p class="sec-desc">Paleta oficială a sezonului 2025 — nuanțe validate de tendințele internaționale, perfecte pentru orice ținută comandată.</p>
         </div>
-        <!-- Cardurile sunt generate din script.js -->
-        <div id="colorGrid" class="grid-4"></div>
+        <div class="grid4" id="colorGrid" role="list"></div>
       </section>
 
       <!-- 4. HAINE -->
-      <section id="haine" class="section">
-        <div class="section-header">
-          <span class="section-tag">Selecție exclusivă</span>
-          <h2>Haine de <em>Brand</em> & Unicat</h2>
-          <p>Branduri de autor cu ediții limitate sau piese unicat din atelierul propriu.</p>
+      <section class="sec" id="haine" aria-labelledby="haine-h">
+        <div class="sec-hd">
+          <p class="sec-tag">Selecție exclusivă</p>
+          <h2 class="sec-title" id="haine-h">Haine de <em>Brand</em> & Unicat</h2>
+          <p class="sec-desc">Explorează piesele noastre — branduri de autor cu ediții limitate sau creații 100% unicat din atelierul propriu.</p>
         </div>
-        <!-- Tab-uri pentru a separa branduri vs unicat -->
-        <div class="tabs">
-          <button class="tab-btn active" data-tab="pane-brand">✦ Branduri de autor</button>
-          <button class="tab-btn"        data-tab="pane-unicat">✦ Piese Unicat</button>
+        <div class="tabs" role="tablist" aria-label="Categorii haine">
+          <button class="tab-btn active" role="tab" aria-selected="true"  aria-controls="pane-brand"  data-tab="pane-brand">✦ Branduri de autor</button>
+          <button class="tab-btn"        role="tab" aria-selected="false" aria-controls="pane-unicat" data-tab="pane-unicat">✦ Piese Unicat</button>
         </div>
-        <!-- Conținutul fiecărui tab este generat din script.js -->
-        <div id="pane-brand"  class="tab-pane active grid-4"></div>
-        <div id="pane-unicat" class="tab-pane        grid-4"></div>
+        <div class="tab-pane active" id="pane-brand"  role="tabpanel"></div>
+        <div class="tab-pane"        id="pane-unicat" role="tabpanel"></div>
       </section>
 
       <!-- 5. ACCESORII -->
-      <section id="accesorii" class="section">
-        <div class="slider-header">
-          <div class="section-header">
-            <span class="section-tag">Statement pieces</span>
-            <h2>Accesorii</h2>
+      <section class="sec" id="accesorii" aria-labelledby="acc-h">
+        <div class="slider-hd">
+          <div>
+            <p class="sec-tag">Statement pieces</p>
+            <h2 class="sec-title" id="acc-h">Accesorii</h2>
           </div>
-          <!-- Butoane navigare slider -->
-          <div class="slider-controls">
-            <span id="sliderCounter"></span>
-            <button class="btn btn-icon" id="btnPrev" aria-label="Anterior">
-              <i class="fas fa-chevron-left"></i>
-            </button>
-            <button class="btn btn-icon" id="btnNext" aria-label="Următor">
-              <i class="fas fa-chevron-right"></i>
-            </button>
+          <div class="slider-ctrls">
+            <span class="slider-ctr" id="sliderCounter" aria-live="polite"></span>
+            <button class="btn btn-icon" id="btnPrev" aria-label="Anterior"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+            <button class="btn btn-icon" id="btnNext" aria-label="Următor"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
           </div>
         </div>
-        <!-- Slider-ul este construit din script.js -->
-        <div class="slider-viewport">
-          <div class="slider-track" id="sliderTrack"></div>
+        <div class="slider-vp">
+          <div class="slider-track" id="sliderTrack" role="list"></div>
         </div>
       </section>
 
-      <!-- 6. RECENZII -->
-      <section id="recenzii" class="section">
-        <div class="section-header">
-          <span class="section-tag">Comunitate</span>
-          <h2>Recenzii & <em>Recomandări</em></h2>
-          <p>Părerile clienților noștri — cu sau fără fotografie.</p>
+      <!-- 6. STILURI POPULARE -->
+      <section class="sec" id="stiluri" aria-labelledby="stil-pop-h">
+        <div class="sec-hd">
+          <p class="sec-tag">Tendințe vestimentare</p>
+          <h2 class="sec-title" id="stil-pop-h">Stiluri <em>Populare</em></h2>
+          <p class="sec-desc">Cele mai căutate estetici ale momentului — alege stilul care te reprezintă și inspiră-te din piese reale.</p>
         </div>
 
-        <div class="reviews-wrapper">
-          <!-- Recenziile sunt afișate din script.js -->
-          <div id="reviewsList" class="grid-3"></div>
+        <!-- Toggle Bărbați / Femei -->
+        <div class="gender-toggle" role="tablist" aria-label="Filtrare după gen">
+          <button class="gt-btn active" role="tab" aria-selected="true" data-gender="women">
+            <i class="fas fa-venus" aria-hidden="true"></i> Femei
+          </button>
+          <button class="gt-btn" role="tab" aria-selected="false" data-gender="men">
+            <i class="fas fa-mars" aria-hidden="true"></i> Bărbați
+          </button>
+        </div>
 
-          <!-- Formular adăugare recenzie -->
-          <div class="review-form">
-            <h3>Lasă recenzia ta</h3>
+        <!-- Grid stiluri -->
+        <div class="styles-grid" id="stylesGrid" role="list"></div>
+      </section>
 
+      <!-- 7. RECENZII -->
+      <section class="sec" id="recenzii" aria-labelledby="rev-h">
+        <div class="sec-hd">
+          <p class="sec-tag">Comunitate</p>
+          <h2 class="sec-title" id="rev-h">Recenzii & <em>Recomandări</em></h2>
+          <p class="sec-desc">Părerile reale ale clienților noștri — cu sau fără fotografie. Autenticitatea contează.</p>
+        </div>
+        <div class="rev-wrap">
+          <div class="grid3" id="revContainer" role="list"></div>
+          <div class="rev-form" aria-label="Formular recenzie">
+            <h3 class="rev-form-title">Lasă recenzia ta</h3>
             <div class="form-row">
-              <div class="form-group">
-                <label for="revName">Numele tău</label>
-                <input type="text" id="inputName" placeholder="Ex: Maria" maxlength="60">
+              <div class="fg">
+                <label class="fl" for="revName">Numele tău</label>
+                <input class="fi" id="revName" type="text" placeholder="Ex: Maria" maxlength="60" autocomplete="nickname">
               </div>
-              <div class="form-group">
-                <label>Ești mulțumit?</label>
-                <div class="radio-group">
-                  <label><input type="radio" name="rating" value="yes" checked> 😍 Da</label>
-                  <label><input type="radio" name="rating" value="no"> 😕 Nu prea</label>
+              <div class="fg">
+                <p class="fl" id="rlbl">Ești mulțumit?</p>
+                <div class="rating-row" role="radiogroup" aria-labelledby="rlbl">
+                  <label class="rating-opt"><input type="radio" name="revRating" value="yes" checked> 😍 Da, mulțumit</label>
+                  <label class="rating-opt"><input type="radio" name="revRating" value="no"> 😕 Nu prea</label>
                 </div>
               </div>
             </div>
-
-            <div class="form-group">
-              <label for="revText">Comentariul tău</label>
-              <textarea id="inputComment" maxlength="300"
-                placeholder="Calitate, livrare, stil — spune tot!"></textarea>
+            <div class="fg">
+              <label class="fl" for="revText">Comentariul tău</label>
+              <textarea class="fta" id="revText" maxlength="300" placeholder="Calitate material, livrare, stil — spune tot!"></textarea>
             </div>
-
-            <div class="form-group">
-              <label>Fotografie (opțional)</label>
-              <label class="file-label" for="reviewImgUpload">
-                <i class="fas fa-image"></i> Adaugă o poză (max 2MB)
-              </label>
-              <input type="file" id="inputPhoto" accept="image/*">
-              <div id="imgPrev"></div>
+            <div class="fg">
+              <p class="fl">Fotografie (opțional)</p>
+              <label class="file-lbl" for="reviewImgUpload"><i class="fas fa-image" aria-hidden="true"></i> Adaugă o poză (max 2MB)</label>
+              <input type="file" id="reviewImgUpload" accept="image/*" aria-label="Încarcă fotografie recenzie">
+              <div id="imgPrev" aria-live="polite"></div>
             </div>
-
-            <button class="btn btn-primary" id="submitRev" type="button">
-              Trimite recenzia <i class="fas fa-paper-plane"></i>
-            </button>
+            <div>
+              <button class="btn btn-gold" id="submitRev" type="button">Trimite recenzia <i class="fas fa-paper-plane" aria-hidden="true"></i></button>
+            </div>
           </div>
         </div>
       </section>
 
-    </main>
+    </div>
+  </main>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-      <p class="footer-logo">✦ FAS SUN</p>
-      <p class="footer-sub">Haute couture digitală · © 2025</p>
-    </footer>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p class="footer-logo">✦ FAS SUN</p>
+    <p class="footer-sub">Haute couture digitală · Modă sustenabilă &amp; premium · © 2025</p>
+  </footer>
 
-  </div><!-- /site -->
+</div>
 
-  <!-- Logica paginii -->
-  <script src="script.js"></script>
+<button id="backToTop" aria-label="Înapoi sus">
+  <i class="fas fa-arrow-up" aria-hidden="true"></i>
+</button>
 
+<script src="script.js"></script>
 </body>
-</html>   
+</html>
